@@ -1,0 +1,43 @@
+Upload → Parse → Rules flow
+
+app.py
+Entry point. Loads .env, configures logging, renders Streamlit UI, reads the uploaded file, and calls the process-report graph.
+It stores the structured report in session state and renders summary + diet guidance.
+
+
+config_logging.py
+Initializes the root logger used across the app (called early by app.py).
+
+
+graph.py
+Builds and runs the process report graph: extract_node → rules_node.
+
+
+extractor.py
+Extracts raw text from PDF (PyMuPDF, OCR fallback) or image (Tesseract).
+
+
+parser.py
+Parses raw text into structured rows: {test_name, value, unit, ref_low, ref_high}.
+
+rules.py
+Applies reference-range logic to add status, fact, and critical flags.
+Chat + Diet + Type Likelihood flow
+
+app.py
+Handles chat input and “Generate likelihood note” actions; calls the chat graph and diet guidance functions.
+
+
+**graph.py**
+Runs the chat graph: qa_node, which calls the LLM and appends messages.
+
+
+llm.py
+Formats the structured report + context, calls Groq, and produces:
+Chat responses (get_chat_response)
+Diet JSON (get_diet_guidance)
+Type 1 vs Type 2 note (get_type_likelihood_note)
+Supporting glue
+
+__init__.py
+Re-exports functions so app.py can import them cleanly.
