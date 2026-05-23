@@ -1,66 +1,62 @@
-# Medical Lab Report Chatbot
+# Intelligent Lab Report Analysis using Multi-Agent LangGraph Framework
 
-Explain lab reports clearly, safely, and fast.
+AI-powered medical lab report analysis system built using **LangGraph, OCR, and LLMs** to extract, analyze, and explain medical laboratory reports in simple, patient-friendly language.
 
-This repository contains a Streamlit application that ingests lab reports, turns them into structured data, and produces plain-language explanations with non-diagnostic guidance. The system is designed for clarity, safety, and privacy, with all data living in session state only.
+The system processes PDF/image-based lab reports, converts them into structured data, classifies abnormal values.
 
+---
+## What This Project Is
+
+This project is an AI-powered medical lab report analysis system that helps users understand laboratory reports without requiring medical expertise.
+
+The application extracts data from PDF/image-based lab reports, converts them into structured information, classifies abnormal values using rule-based analysis, and generates simple, patient-friendly explanations through an LLM-powered conversational interface.
+
+The system follows a deterministic-first approach where structured report data is validated before being passed to the language model, improving reliability and reducing hallucinations.
+
+---
+## Project Aim
+
+- Make medical lab reports easier to understand for non-medical users  
+- Provide structured and grounded explanations without inventing values  
+- Deliver educational, non-diagnostic health insights  
+- Ensure privacy by avoiding persistent storage of medical data
+
+---
+
+## Features
+
+- PDF & Image Lab Report Processing
+- OCR-based Text Extraction using Tesseract
+- Structured Lab Value Parsing
+- Rule-Based Classification (Normal / High / Low / Critical)
+- AI-Powered Explanations using LLMs
+- Interactive Chat Interface with Streamlit
+- Diet Guidance & Health Insights
+- Privacy-First Design (No Persistent Storage)
+  
 ---
 
 ## Table of Contents
 
-1. What This Project Is
-2. Our Aim
-3. What We Provide
-4. Core Tech Stack
-5. The Power of Agentic AI and LangGraph
-6. System Architecture
-7. Project Flow
-8. Core Files in Sequence
-9. Core File Reference
-10. Data Flow Deep Dive
-11. LLM Prompting Strategy
-12. Safety and Privacy
-13. Setup and Configuration
-14. Usage
-15. Observability and Logging
-16. Performance Notes
-17. Extensibility
-18. Troubleshooting
-19. Demo Data
-20. Roadmap
-21. FAQ
-22. License
+- Features
+- System Architecture
+- Project Workflow
+- Project Structure
+- Setup & Installation
+- Usage
+- Screenshots
+- Safety & Privacy
+- Future Enhancements
+- Contributors
+- License
 
 ---
 
-## What This Project Is
 
-This is a lab-report understanding assistant with two explicit layers:
-
-1. A deterministic processing layer that extracts text, parses values, and applies reference range rules.
-2. A reasoning layer that turns the structured report into clear explanations and helpful, non-diagnostic guidance.
-
-The combination provides trustworthy explanations while keeping the model grounded in structured data.
 
 ---
 
-## Our Aim
 
-1. Make lab reports understandable without medical training.
-2. Provide consistent, structured explanations that do not invent values.
-3. Offer non-diagnostic guidance to support better questions for clinicians.
-4. Keep user data private by avoiding storage.
-
----
-
-## What We Provide
-
-1. PDF and image ingestion with OCR fallback for scanned reports.
-2. Parsing into structured lab rows with reference ranges.
-3. Rules-based labeling of normal, high, low, and critical results.
-4. Clear, plain-language summaries and explanations.
-5. Non-diagnostic diet guidance that respects user context.
-6. A Type 1 vs Type 2 likelihood note based on optional inputs.
 
 ---
 
